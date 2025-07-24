@@ -1,0 +1,13 @@
+{
+    "pdf_input_path": "data/tender sample 2.pdf",
+    "parameters_json_path": "data/parameters_for_exercise.json",
+    "output_directory": "data/output",
+    "log_file_path": "logs/app.log",
+    "llm_model_name": "gemini-2.0-flash",
+    "default_language_for_prompts": "english",
+    "max_pages_per_prompt": 1,
+    "page_overlap_chars": 500,
+    "max_tokens_per_page": 4000,
+    "retry_attempts": 3,
+    "timeout_seconds": 30
+} 

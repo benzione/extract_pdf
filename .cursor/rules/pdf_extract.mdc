@@ -1,0 +1,170 @@
+Application Development Guidelines
+==================================
+
+This document outlines the architectural and development guidelines for building the Tender Document Analysis application. Adhering to these principles will ensure a modular, maintainable, testable, and robust solution.
+
+1\. Core Principles
+-------------------
+
+*   **No Hardcoding**: All configurable values (file paths, API keys, model names, thresholds, etc.) must be externalized.
+    
+*   **Robust Error Handling**: Anticipate and handle errors gracefully. Avoid silent failures or bypassing exceptions. Log all errors comprehensively.
+    
+*   **Modularity**: Break down the problem into small, independent, and reusable functions and classes.
+    
+*   **Readability**: Write clean, well-commented code.
+    
+
+2\. Architectural Pattern: Facade
+---------------------------------
+
+The application should implement a **Facade pattern** to provide a simplified interface to the complex underlying logic of document processing.
+
+*   **TenderProcessor Facade Class**:
+    
+    *   A central class (e.g., TenderProcessor) will act as the facade.
+        
+    *   It should expose high-level methods (e.g., process\_tender(pdf\_path, params\_json\_path)) that orchestrate the entire workflow.
+        
+    *   This class will encapsulate the interactions with various sub-components (document loader, page tagger, matcher, prompt builder, LLM caller, result formatter).
+        
+    *   It should handle the overall flow, error propagation, and result aggregation.
+        
+
+3\. Folder and File Structure
+-----------------------------
+
+A clear and organized directory structure is crucial for project maintainability.
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   .  ├── src/  │   ├── __init__.py  │   ├── main.py                 # Entry point of the application  │   ├── config_manager.py       # Handles loading and accessing configurations  │   ├── document_parser.py      # Functions for PDF loading and page segmentation  │   ├── page_tagger.py          # Logic for tagging individual pages  │   ├── parameter_matcher.py    # Logic for matching parameters to pages  │   ├── prompt_builder.py       # Functions for constructing LLM prompts  │   ├── llm_interface.py        # Abstraction for interacting with the language model API  │   ├── output_formatter.py     # Functions for formatting the final output  │   ├── exceptions.py           # Custom exception definitions  │   └── utils.py                # General utility functions (e.g., string normalization)  ├── config/  │   └── app_config.json         # Configuration file (or app_config.ini)  ├── data/  │   ├── tender_sample.pdf       # Example tender document (input)  │   └── parameters_for_exercise.json # Parameter list (input)  │   └── output/                 # Directory for storing generated output files  ├── logs/  │   └── app.log                 # Application log file  ├── tests/  │   ├── __init__.py  │   ├── test_document_parser.py  │   ├── test_page_tagger.py  │   ├── test_parameter_matcher.py  │   ├── test_prompt_builder.py  │   ├── test_llm_interface.py  │   └── test_output_formatter.py  ├── .env                        # Environment variables (e.g., API keys)  ├── requirements.txt            # Project dependencies  └── README.md                   # Project documentation   `
+
+4\. Configuration Management
+----------------------------
+
+All application settings, paths, and external parameters must be managed via a dedicated configuration file and environment variables.
+
+*   **Configuration Sources**:
+    
+    *   **.env file**: For sensitive information like API keys and other global variables that should not be committed to version control. Use the python-dotenv library to load these variables.
+        
+    *   **app\_config.json (or app\_config.ini)**: For general application settings, file paths, model names, and other non-sensitive configurations. JSON is generally preferred for its flexibility.
+        
+*   **config\_manager.py**:
+    
+    *   This module should provide functions or a class to load configuration values.
+        
+    *   It should handle potential FileNotFoundError if app\_config.json is missing.
+        
+    *   It should load environment variables from the .env file at startup.
+        
+    *   Example configuration items:
+        
+        *   pdf\_input\_path (from app\_config.json)
+            
+        *   parameters\_json\_path (from app\_config.json)
+            
+        *   output\_directory (from app\_config.json)
+            
+        *   log\_file\_path (from app\_config.json)
+            
+        *   llm\_api\_key (from .env)
+            
+        *   llm\_model\_name: gemini-2.0-flash (from app\_config.json)
+            
+        *   default\_language\_for\_prompts (from app\_config.json)
+            
+*   **Usage**: Configuration values should be accessed through the config\_manager and passed to relevant functions/classes, rather than being hardcoded.
+    
+
+5\. Logging
+-----------
+
+Comprehensive logging is essential for monitoring application behavior, debugging, and identifying issues.
+
+*   **Python's logging Module**: Use the built-in logging module.
+    
+*   **Configuration**: Configure logging in main.py or a dedicated logging\_config.py module.
+    
+    *   Set up a file handler to write logs to logs/app.log.
+        
+    *   Set up a console handler for immediate feedback.
+        
+    *   Define log levels (DEBUG, INFO, WARNING, ERROR, CRITICAL).
+        
+*   **Log Levels**:
+    
+    *   INFO: General application flow, major steps completed.
+        
+    *   DEBUG: Detailed information for debugging (e.g., intermediate results, function calls).
+        
+    *   WARNING: Potential issues that don't stop execution but should be noted.
+        
+    *   ERROR: Runtime errors that prevent a specific operation from completing.
+        
+    *   CRITICAL: Severe errors that cause the application to terminate or become unusable.
+        
+*   **Content**: Log function entries/exits, significant data transformations, API calls, and _all_ exceptions with traceback information.
+    
+
+6\. File Writing
+----------------
+
+Any output generated by the application must be written to files in a structured manner.
+
+*   **Output Directory**: All output files (e.g., the final JSON result) should be written to the data/output/ directory, whose path is specified in the configuration.
+    
+*   **Naming Convention**: Use a clear and consistent naming convention for output files (e.g., tender\_analysis\_results\_{timestamp}.json).
+    
+*   **Error Handling**: Implement try-except blocks around file writing operations to handle IOError or PermissionError.
+    
+*   **Resource Management**: Always use with open(...) statements to ensure files are properly closed, even if errors occur.
+    
+
+7\. Unit Testing
+----------------
+
+Thorough unit testing is critical to ensure the correctness and reliability of individual components.
+
+*   **Framework**: Use Python's built-in unittest module or pytest (recommended for its simplicity and features).
+    
+*   **Test Structure**:
+    
+    *   Each module in src/ should have a corresponding test file in tests/ (e.g., src/document\_parser.py -> tests/test\_document\_parser.py).
+        
+    *   Tests should be isolated and independent.
+        
+    *   Use mock objects for external dependencies (e.g., LLM API calls, file system operations) to ensure tests run fast and consistently.
+        
+*   **Coverage**: Aim for high test coverage, especially for core logic, edge cases, and error conditions.
+    
+*   **What to Test**:
+    
+    *   **document\_parser.py**: PDF loading, page extraction, text cleanliness.
+        
+    *   **page\_tagger.py**: Correctness of page tagging based on content, handling of different tag types.
+        
+    *   **parameter\_matcher.py**: Accurate mapping of parameters to pages, handling of synonyms, "not found" cases.
+        
+    *   **prompt\_builder.py**: Correct generation of prompts based on parameters and selected pages.
+        
+    *   **llm\_interface.py**: (Mocked) interaction with LLM API, handling of different responses.
+        
+    *   **output\_formatter.py**: Correct formatting of the final JSON output.
+        
+
+8\. Error Handling (Detailed)
+-----------------------------
+
+*   **Explicit try-except Blocks**: Every operation that can potentially fail (file I/O, API calls, data parsing) must be wrapped in a try-except block.
+    
+*   **Specific Exceptions**: Catch specific exceptions rather than broad Exception where possible (e.g., FileNotFoundError, json.JSONDecodeError, requests.RequestException).
+    
+*   **Custom Exceptions**: Define custom exceptions in src/exceptions.py for application-specific errors (e.g., DocumentProcessingError, LLMAPIError, InvalidConfigurationError). This improves clarity and allows for more granular error handling at higher levels.
+    
+*   **Logging Errors**: When an exception is caught, log the error message, the exception type, and the full traceback using logging.error(..., exc\_info=True).
+    
+*   **Propagation**: Decide whether to handle an error locally or re-raise it (possibly as a custom exception) to be handled by the calling function or the facade.
+    
+*   **No Silent Failures**: Never pass on an exception without logging or handling it.
+    
+*   **Input Validation**: Validate inputs (e.g., file existence, JSON structure) early in the process to prevent downstream errors.

@@ -1,0 +1,121 @@
+{
+  "page_classification": {
+    "cover_page": {
+      "english": ["tender", "invitation", "bid", "proposal", "rfp", "request for proposal", "solicitation", "procurement", "cover page", "title page"],
+      "hebrew": ["מכרז", "פומבי", "הצעה", "הזמנה", "רכש", "כריכה"]
+    },
+    "table_of_contents": {
+      "english": ["table of contents", "contents", "index", "overview", "structure"],
+      "hebrew": ["תוכן", "תוכן העניינים", "מבנה", "סקירה", "אינדקס"]
+    },
+    "general_info": {
+      "english": ["general information", "project description", "background", "scope", "objectives", "purpose", "introduction", "overview"],
+      "hebrew": ["מידע כללי", "תיאור", "רקע", "מטרה", "מטרות", "מבוא", "כללי"]
+    },
+    "technical_specs": {
+      "english": ["technical specifications", "requirements", "technical requirements", "specifications", "technical details", "technical criteria"],
+      "hebrew": ["מפרט טכני", "דרישות טכניות", "מפרט", "טכני", "דרישות"]
+    },
+    "financial_info": {
+      "english": ["financial", "budget", "cost", "price", "payment", "financial requirements", "pricing", "commercial", "financial terms"],
+      "hebrew": ["כספי", "תקציב", "עלות", "מחיר", "תשלום", "מסחרי", "כלכלי"]
+    },
+    "legal_terms": {
+      "english": ["legal", "terms and conditions", "contract", "agreement", "legal requirements", "liability", "insurance", "indemnity", "warranty"],
+      "hebrew": ["משפטי", "תנאים", "חוזה", "הסכם", "ביטוח", "אחריות", "נזק"]
+    },
+    "evaluation_criteria": {
+      "english": ["evaluation", "scoring", "assessment", "criteria", "evaluation method", "selection criteria", "assessment criteria", "weighting"],
+      "hebrew": ["הערכה", "ציון", "ניקוד", "מדדים", "קריטריונים", "שיטת הערכה", "בחירה"]
+    },
+    "submission_requirements": {
+      "english": ["submission", "deadline", "submission requirements", "how to submit", "submission format", "required documents"],
+      "hebrew": ["הגשה", "מועד", "דרישות הגשה", "איך להגיש", "מסמכים נדרשים"]
+    },
+    "contact_info": {
+      "english": ["contact", "contact information", "inquiries", "questions", "point of contact", "project manager", "contact person"],
+      "hebrew": ["קשר", "מידע ליצירת קשר", "פניות", "שאלות", "איש קשר"]
+    },
+    "appendix": {
+      "english": ["appendix", "attachment", "exhibit", "schedule", "annex"],
+      "hebrew": ["נספח", "נספחים", "נספח א", "נספח ב", "מסמך", "טופס"]
+    }
+  },
+  "parameter_matching": {
+    "client_name": {
+      "english": ["client", "organization", "company", "agency", "authority", "department", "contracting party", "procuring entity", "buyer"],
+      "hebrew": {
+        "organizational_terms": ["תאגיד", "חברה", "רשות", "משרד", "מזמין", "לקוח", "ארגון", "מכון", "מרכז", "מוסד", "קרן", "מחלקה", "יחידה", "מנהל", "מנהלת", "מחוז"],
+        "legal_entities": ["בע\"מ", "בע״מ", "ממשלת", "עירייה", "מועצה"]
+      }
+    },
+    "tender_name": {
+      "english": ["tender", "project", "contract", "title", "name of work", "service", "supply", "procurement", "rfp"],
+      "hebrew": {
+        "tender_terms": ["מכרז", "פרויקט", "חוזה", "שירות", "עבודה", "רכש", "השירות", "פומבי", "מס'", "למתן", "שירותי", "שם המכרז"],
+        "action_terms": ["הזמנה", "פנייה", "בקשה", "הצעות", "סיפוק", "אספקה", "ביצוע", "קבלת"]
+      }
+    },
+    "threshold_conditions": {
+      "english": ["threshold", "minimum", "maximum", "qualification", "eligibility", "requirement", "criteria", "condition"],
+      "hebrew": {
+        "basic_terms": ["תנאי", "סף", "תנאי סף", "דרישות", "כשירות", "זכאות", "תנאים", "מינימום", "מקסימום", "הגבלות", "הגבלה", "מוקדמות", "בסיסיות"],
+        "experience_terms": ["ניסיון", "ותק", "שנות", "פרויקט", "פרויקטים", "עבודה", "ביצוע", "הוכחת", "אישור", "אישורים", "הצגת", "הוכחה", "עבודות", "השתתפות"],
+        "qualifications": ["הכשרה", "הסמכה", "הסמכות", "תעודה", "תעודות", "קורס", "קורסים", "השכלה", "לימודים", "תואר", "תארים", "רישיון", "רישיונות"],
+        "professional_terms": ["מתחום", "תחום", "מערכת", "מערכות", "טכנולוגיה", "טכנולוגיות", "התמחות", "מומחיות", "מיומנות", "יכולת", "יכולות", "כישורים"],
+        "time_based": ["חודש", "חודשים", "שנה", "שנים", "תקופה", "תקופת", "משך", "רצופים", "מצטבר", "מצטברת", "לפחות", "מעל", "מתחת"],
+        "financial": ["מחזור", "הכנסות", "רווח", "רווחים", "עצמי", "הון", "כספי", "שוק", "ערך", "שווי", "גובה", "סכום", "סכומים"]
+      }
+    },
+    "contract_period": {
+      "english": ["period", "duration", "timeframe", "timeline", "schedule", "completion", "start date", "end date", "term", "months", "years", "days"],
+      "hebrew": {
+        "time_terms": ["תקופה", "תקופת", "זמן", "משך", "חודש", "חודשים", "שנה", "שנים", "ימים", "תאריך", "מועד", "סיום", "התחלה"],
+        "contract_terms": ["השירות", "ההתקשרות", "החוזה", "הארכה", "אופציה"],
+        "date_references": ["2025", "2024", "לחודש", "בחודש", "שנת", "ביום"]
+      }
+    },
+    "evaluation_method": {
+      "english": ["evaluation", "assessment", "scoring", "selection", "criteria", "method", "weighting", "points", "marks", "grade"],
+      "hebrew": {
+        "evaluation_terms": ["הערכה", "בחינה", "ניקוד", "ציון", "ציונים", "נקודות", "שקלול", "משקל", "קריטריונים", "מדדים", "בחירה", "שיטה", "שיטת", "מתודה"],
+        "scoring_terms": ["מקסימאלי", "משוקלל", "איכות", "מחיר", "מול", "מידור", "דירוג", "דרוג", "נקודה", "מקסימום", "מינימום", "אחוז", "אחוזים", "יחסי", "יחסית", "משקלות"],
+        "process_terms": ["בחירת", "סינון", "מיון", "מיונג", "סינוף", "ניתוח", "השוואה", "השוואת", "בדיקה", "בדיקת"]
+      }
+    },
+    "bid_guarantee": {
+      "english": ["guarantee", "bond", "security", "deposit", "bank guarantee", "surety", "performance bond", "bid security"],
+      "hebrew": {
+        "guarantee_terms": ["ערבות", "ערבויות", "בנק", "בנקאית", "ביטחון", "פיקדון", "ביצוע", "המכרז", "הצעה", "הבטחה", "כספית", "סכום", "אחוזים", "אחוז", "מערך", "תוקף", "פגיעה"],
+        "financial_security": ["בטחונות", "בטחון", "הפקדה", "הפקדת", "צ'ק", "המחאה", "שטר", "שטרות", "ח.פ", "ח.פ.", "שיק", "כסף", "כספים", "מזומן", "מזומנים"],
+        "banking_terms": ["בנקאי", "בנקאיים", "אשראי", "חשבון", "חשבונות", "העברה", "העברת", "תשלום", "תשלומים"]
+      }
+    },
+    "idea_author": {
+      "english": ["author", "consultant", "designer", "architect", "engineer", "firm", "company", "prepared by", "designed by"],
+      "hebrew": ["יוצר", "יועץ", "מתכנן", "אדריכל", "מהנדס", "משרד", "חברה", "הוכן על ידי", "תוכנן על ידי"]
+    }
+  },
+  "fallback_keywords": {
+    "page_classification": {
+      "cover_page": ["tender", "מכרז", "proposal", "הצעה"],
+      "other": []
+    },
+    "parameter_matching": {
+      "client_name": ["client", "organization", "תאגיד", "חברה"],
+      "tender_name": ["tender", "project", "מכרז", "פרויקט"],
+      "threshold_conditions": ["threshold", "requirement", "תנאי", "דרישות"],
+      "contract_period": ["period", "duration", "תקופה", "זמן"],
+      "evaluation_method": ["evaluation", "scoring", "הערכה", "ניקוד"],
+      "bid_guarantee": ["guarantee", "bond", "ערבות", "ביטחון"],
+      "idea_author": ["author", "consultant", "יוצר", "יועץ"]
+    }
+  },
+  "generic_search": {
+    "parameter_name_transformations": {
+      "replace_underscore": true,
+      "include_original": true,
+      "additional_patterns": []
+    }
+  }
+} 
