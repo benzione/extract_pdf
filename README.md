@@ -57,7 +57,7 @@ main() function
 
 1. **Clone and set up the project**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/benzione/extract_pdf.git
    cd pdf_extract
    ```
 
