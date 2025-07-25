@@ -4,6 +4,11 @@ These provide specific error types for better error handling and debugging.
 """
 
 
+class TenderProcessingError(Exception):
+    """Base exception for tender processing errors."""
+    pass
+
+
 class DocumentProcessingError(TenderProcessingError):
     """Raised when there's an error processing the PDF document."""
     pass
