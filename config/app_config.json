@@ -1,5 +1,5 @@
 {
-    "pdf_input_path": "data/tender sample 2.pdf",
+    "pdf_input_path": "data/tender sample.pdf",
     "parameters_json_path": "data/parameters_for_exercise.json",
     "output_directory": "data/output",
     "log_file_path": "logs/app.log",
